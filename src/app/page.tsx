@@ -50,6 +50,11 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+        <div className="flex items-center justify-center w-full h-full">
+          <div className="bg-blue-500 text-white p-4 rounded">
+            Content to be centered
+          </div>
+        </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
