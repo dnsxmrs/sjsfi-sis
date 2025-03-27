@@ -10,22 +10,14 @@
 
 ### Required Tools
 
-1. **Node Version Manager (NVM)**
-2. **Node.js**
+1. **Node Version Manager (NVM) 1.2.2** (for managing node and npm)
+2. **Node.js v22.14.0 or latest**
 3. **PostgreSQL**
 4. **Git**
 
 ## Initial Setup
 
 ### 1. Install NVM (Node Version Manager)
-
-#### macOS/Linux
-
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-# Or
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-```
 
 #### Windows
 
@@ -35,8 +27,8 @@ Download and install NVM for Windows from: <https://github.com/coreybutler/nvm-w
 
 ```bash
 # Install the project's Node.js version
-nvm install 20.11.1
-nvm use 20.11.1
+nvm install 22.14.0
+nvm use 22.14.0
 
 # Verify installation
 node --version
@@ -45,45 +37,29 @@ npm --version
 
 ### 3. Install PostgreSQL
 
-#### macOS
-
-```bash
-# Using Homebrew
-brew install postgresql
-brew services start postgresql
-```
-
-#### Linux (Ubuntu/Debian)
-
-```bash
-sudo apt update
-sudo apt install postgresql postgresql-contrib
-sudo systemctl start postgresql
-```
-
-#### Windows
-
 1. Download installer from: <https://www.postgresql.org/download/windows/>
 2. Run the installer
 3. Set up postgres user password during installation
 
-### 4. Create PostgreSQL Database
+### 4. Create PostgreSQL Database Using pgAdmin
 
-```bash
-# Log into PostgreSQL
-psql postgres
-
-# Create database
-CREATE DATABASE yourprojectdb;
-CREATE USER yourdbuser WITH PASSWORD 'yourpassword';
-GRANT ALL PRIVILEGES ON DATABASE yourprojectdb TO yourdbuser;
-```
+1. Open pgAdmin
+    - Launch pgAdmin and log in.
+2. Connect to PostgreSQL Server
+    - In the left panel, expand Servers > PostgreSQL (or your custom server name).
+    - If prompted, enter your PostgreSQL password.
+3. Create a New Database
+    - Right-click on Databases > Click Create > Database.
+    - In the General tab:
+        - Database name: ```sjsfi-sis```
+    - In the Owner dropdown, select postgres or your preferred user.
+    - Click Save.
 
 ### 5. Clone the Repository
 
 ```bash
-git clone [YOUR_REPOSITORY_URL]
-cd [PROJECT_DIRECTORY]
+git clone https://github.com/dnsxmrs/sjsfi-sis
+cd sjsfi-sis
 ```
 
 ### 6. Install Project Dependencies
@@ -103,8 +79,7 @@ cp .env.example .env
 2. Edit `.env` file with your specific configurations:
 
 ```
-DATABASE_URL=postgresql://yourdbuser:yourpassword@localhost:5432/yourprojectdb
-PORT=3000
+DATABASE_URL="postgresql://postgres:[yuorPassword]@localhost:5432/sjsfi-sis?schema=public"
 # Add other necessary environment variables
 ```
 
@@ -154,12 +129,6 @@ npm run dev
 - `npm run build`: Create production build
 - `npm run migrate`: Run database migrations
 - `npm run seed`: Seed database with initial data
-
-## Recommended Development Tools
-
-- **IDE**: Visual Studio Code
-- **Database GUI**: DBeaver, Postico
-- **API Testing**: Postman, Insomnia
 
 ## Contributing
 
