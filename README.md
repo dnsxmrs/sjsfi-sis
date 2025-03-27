@@ -103,6 +103,13 @@ npm run seed
 npm run dev
 ```
 
+### 11. Test db connection
+
+1. Go to ```http://localhost:3000/api/students```
+2, If the page shows a list of students, it means the db connection is working.
+
+### Happy coding
+
 ## Common Troubleshooting
 
 ### NVM Issues
