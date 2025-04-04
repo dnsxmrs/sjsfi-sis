@@ -79,7 +79,7 @@ cp .env.example .env
 2. Edit `.env` file with your specific configurations:
 
 ```
-DATABASE_URL="postgresql://postgres:[yuorPassword]@localhost:5432/sjsfi-sis?schema=public"
+DATABASE_URL="postgresql://postgres:[yourPassword]@localhost:5432/sjsfi-sis?schema=public"
 # Add other necessary environment variables
 ```
 
@@ -106,7 +106,7 @@ npm run dev
 ### 11. Test db connection
 
 1. Go to ```http://localhost:3000/api/students```
-2, If the page shows a list of students, it means the db connection is working.
+2. If the page shows a list of students, it means the db connection is working.
 
 ### Happy coding
 
